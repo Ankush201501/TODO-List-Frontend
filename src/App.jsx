@@ -10,6 +10,9 @@ function App() {
 
   // get item from local storage
   useEffect(() => {
+    fetch("http://localhost:8000/")
+      .then((res) => res.json())
+      .then((data) => console.log(data.message));
     const storedTasks = localStorage.getItem("allUsersTasks");
     if (storedTasks) {
       setAllUsersTasks(JSON.parse(storedTasks));
